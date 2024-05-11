@@ -10,3 +10,5 @@ app.use(express.json());
 app.use(router);
 db().then(() => console.log(`[DB_URI]Database connected`));
 app.listen (PORT, () => console.log(`[PORT]Server on port ${PORT}`));
+
+//comment
