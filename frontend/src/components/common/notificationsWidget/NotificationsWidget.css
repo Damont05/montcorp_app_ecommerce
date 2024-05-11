@@ -1,0 +1,27 @@
+.MenuNotificaciones {
+  width: 25rem;
+  p {
+    text-align: center;
+    font-weight: 600;
+  }
+}
+
+.MenuNotificaciones {
+  margin-right: 100px !important;
+}
+
+.TextNotificaciones {
+  display: flex;
+  flex-direction: column;
+  padding: 0.3125rem;
+  color: var(--color-text-3);
+  text-align: left;
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  font-weight: 300 !important;
+  span {
+    text-align: right;
+    color: var(--color-text-3);
+    font-weight: 300;
+  }
+}

@@ -1,0 +1,17 @@
+.list_productos {
+  padding: 0rem 3.125rem;
+  h3 {
+    margin-bottom: 1.25rem;
+    text-align: center;
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 3.125rem;
+  }
+}
+
+.content_producto {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
