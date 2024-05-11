@@ -1,0 +1,65 @@
+.BtnsSumarRestar {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    margin-right: 10px;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  button {
+    width: 3.125rem;
+    height: 2.1875rem;
+    font-family: Montserrat;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-3);
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+  .labelCounter {
+    width: 50px;
+    height: 35px;
+    padding: 5px;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+.btnAction {
+  margin: 10px 0px;
+  display: flex;
+  .btnAdd {
+    width: 200px;
+    height: 40px;
+    padding: 10px 10px;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-text-1);
+    background-color: var(--bg-4);
+    border-style: none;
+    border-radius: 0.3125rem;
+  }
+  .btnAdd:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    transform: scale(1.05);
+  }
+  img {
+    width: 24px;
+    height: 24px;
+    margin: 6px;
+  }
+}

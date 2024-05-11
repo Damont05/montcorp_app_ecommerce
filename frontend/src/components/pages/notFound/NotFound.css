@@ -1,0 +1,25 @@
+.not_found_Container {
+  padding: 3.125rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: var(--bg-4);
+  .error_404 {
+    font-family: Montserrat;
+    font-weight: 900;
+    font-size: 3.125rem;
+    color: var(--color-text-1);
+  }
+  .not_found {
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 1.875rem;
+    color: var(--color-text-1);
+  }
+  img {
+    width: 300px;
+    height: 300px;
+  }
+}
