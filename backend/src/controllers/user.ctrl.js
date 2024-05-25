@@ -1,45 +1,15 @@
-import { Request, Response } from "express"
-import { handleHttp } from "../utils/error.handle"
+import { handleHttp } from "../utils/error.handle.js"
 import mongoose from 'mongoose';
-import { s_insertUser, s_getAllUsers, 
-    s_getUserName, s_getUserId, 
-    s_updateUser, s_deleteUser} from "../services/user.service";
+import {s_getAllUsers, 
+        s_getUserId, 
+        s_updateUser, 
+        s_deleteUser} from "../services/user.service.js";
 
-
-const c_postUser = async ({body}:Request, res:Response) => {
-    try {
-        //Validate input body params.
-        if(!body.user_name || !body.email || !body.phone || !body.password){
-            res.setHeader('Content-Type','application/json');
-            handleHttp(res, 'FIELDS_REQUIRED', 400);
-           return;
-        } 
-        
-        //Validate existence user_name.
-        let userName = body.user_name;
-        const userExist = await s_getUserName(userName);
-        if(userExist != null){
-            res.setHeader('Content-Type','application/json');
-            handleHttp(res, `USER_NAME_ALREADY_EXIST`, 400);
-            return;
-        }
-
-        //Create user.
-        const responseUser = await s_insertUser(body);
-        res.setHeader('Content-Type','application/json');
-        res.status(201).json({ok:true, message:'User created', user:responseUser})
-
-    } catch (e) {
-       res.setHeader('Content-Type','application/json');
-       handleHttp(res, 'POST_USER', 500);
-       console.log(e);
-    }
-}
-
-const c_getUser = async ({params}:Request, res:Response) => {
+ 
+const c_getUser = async (req,res) => {
 
     try {
-        const {id} = params;
+        const {id} = req.params;
 
         if(!mongoose.Types.ObjectId.isValid(id)){
             res.setHeader('Content-Type','application/json');
@@ -59,7 +29,7 @@ const c_getUser = async ({params}:Request, res:Response) => {
 
 }
 
-const c_getUsers = async(req:Request, res:Response) => {
+const c_getUsers = async(req,res) => {
 
     try {
         const allUsers = await s_getAllUsers();    
@@ -75,10 +45,11 @@ const c_getUsers = async(req:Request, res:Response) => {
     }
 }
 
-const c_updateUser = async ({params, body}:Request, res:Response) => {
+const c_updateUser = async (req, res) => {
 
     try {
-        const { id } = params;
+        const { id } = req.params;
+        const { body } = req.body;
         if(!mongoose.Types.ObjectId.isValid(id)){
             res.setHeader('Content-Type','application/json');
             return res.status(400).json({ ok:false, error: `Enter a valid ID`}); 
@@ -99,10 +70,10 @@ const c_updateUser = async ({params, body}:Request, res:Response) => {
 
 }
 
-const c_deleteUser = async ({params}:Request, res:Response) => {
+const c_deleteUser = async (req, res) => {
 
     try {
-        const { id } = params;
+        const { id } = req.params;
 
         if(!mongoose.Types.ObjectId.isValid(id)){
             res.setHeader('Content-Type','application/json');
@@ -123,4 +94,4 @@ const c_deleteUser = async ({params}:Request, res:Response) => {
 
 }
 
-export { c_postUser, c_getUser, c_getUsers, c_updateUser, c_deleteUser}
+export { c_getUser, c_getUsers, c_updateUser, c_deleteUser }
