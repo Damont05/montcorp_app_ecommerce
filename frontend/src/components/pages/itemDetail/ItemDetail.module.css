@@ -1,0 +1,89 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+
+.product {
+  width: 100%;
+  height: 550px;
+  margin-bottom: 100px !important;
+  padding: 30px !important;
+}
+
+.main {
+  width: 80%;
+  margin: 0 auto !important;
+}
+
+.main .left {
+  margin: auto !important;
+  padding: 0px 18px !important;
+}
+
+.main .left h1 {
+  margin: 0 0 -12px 40px !important;
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: #232e3a;
+}
+
+.main .left h2 {
+  margin: 0 0 -8px 40px !important;
+  font-size: 2.1875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #999999;
+}
+
+.main .left h3 {
+  margin: 0 0 2px 40px !important;
+  font-weight: 600;
+  color: #232e3a;
+}
+
+.main .left img {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+}
+
+.main .right p {
+  color: #999;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.main .right p {
+  margin-bottom: 20px !important;
+}
+
+.main .right p a {
+  text-decoration: none;
+  color: #3399ff;
+}
+
+.product .footer {
+  width: 80%;
+  margin: 30px auto !important;
+  border-top: 1px solid #ccc;
+}
+
+.product .footer .left {
+  display: flex;
+  justify-content: start;
+}
+
+.product .footer .total {
+  font-size: 1.5rem;
+  color: var(--bg-4) !important;
+}
+
+.product .footer .right {
+  display: flex;
+  justify-content: end;
+}
+
+.product .footer .buttonAdd {
+  font-size: 1.5rem;
+  border: none;
+  color: var(--bg-4);
+  background: none;
+}

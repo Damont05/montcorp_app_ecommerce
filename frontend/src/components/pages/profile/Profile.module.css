@@ -1,0 +1,64 @@
+.myProfileContainer {
+  width: 100%;
+  padding: 80px 80px 200px 80px;
+  .headerProfile {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    .greetingUser {
+      margin: 5px;
+      font-family: Montserrat;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--color-text-2);
+    }
+  }
+}
+
+.myProfileContainer .myProfileContent {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.myProfileContent {
+  .myOrders {
+    font-family: arimo;
+    font-weight: 300;
+    font-size: 20px;
+    color: var(--color-text-1);
+  }
+  .ordersContent {
+    font-family: arimo;
+    font-weight: 300;
+    color: var(--color-text-3);
+    padding: 20px;
+  }
+}
+
+.myProfileContent {
+  .myInterests {
+    font-family: arimo;
+    font-weight: 300;
+    font-size: 20px;
+    color: var(--color-text-1);
+  }
+  .interestsContent {
+    font-family: arimo;
+    font-weight: 300;
+    color: var(--color-text-3);
+    padding: 20px;
+  }
+}
+
+.myProfileContent {
+  .helpCenter {
+    font-family: arimo;
+    font-weight: 300;
+    font-size: 20px;
+    color: var(--color-text-1);
+  }
+  .helpCenterContent {
+    font-family: arimo;
+    font-weight: 300;
+    color: var(--color-text-3);
+    padding: 20px;
+  }
+}

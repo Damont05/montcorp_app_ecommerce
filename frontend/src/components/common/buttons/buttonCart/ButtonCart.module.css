@@ -1,0 +1,24 @@
+.cardBtn {
+  width: 30px;
+  height: 30px;
+  margin: 5px !important;
+  padding: 5px;
+  border-style: none;
+  color: rgba(0, 0, 0, 0.8);
+  background-color: inherit;
+  transition: all 0.3 ease;
+}
+
+.cardBtn:hover {
+  transform: scale(1.08);
+  transition: all 0.3 ease;
+}
+
+.cardBtn svg {
+  width: 25px !important;
+  height: 25px !important;
+}
+
+.activated {
+  color: green !important;
+}

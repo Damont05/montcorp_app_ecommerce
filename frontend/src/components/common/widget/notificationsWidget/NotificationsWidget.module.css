@@ -1,0 +1,70 @@
+.roundedDropdownNotification {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.roundedDropdownNotification:hover {
+  border-style: none !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  padding: 5px !important;
+  border-radius: 10px !important;
+  transition: all 0.3s ease;
+}
+
+.dropdown-toggle:after {
+  display: none !important;
+}
+
+.badgePosition {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px !important;
+  transform: translate(50%, -50%);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 20px !important;
+  font-family: montserrat !important;
+  font-weight: 400 !important;
+  font-size: 10px;
+}
+
+.dropdownMenuNotification {
+  margin: 8px 0px 0px -250px !important;
+  padding: 20px !important;
+}
+
+.dropdownHeader {
+  margin-bottom: 10px !important;
+}
+
+.dropdownItem {
+  margin-bottom: 20px !important;
+  padding: 10px !important;
+  border-radius: 5px;
+  background-color: transparent !important;
+}
+
+h1 {
+  font-family: arimo;
+  font-size: 0.875rem;
+  font-weight: 300;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+
+  /* Evitar desbordamiento y romper líneas */
+  white-space: normal; /* Permite que el texto haga salto de línea */
+  word-wrap: break-word; /* Rompe las palabras largas */
+  overflow-wrap: break-word; /* Asegura el ajuste de palabras */
+}
+
+.seeMore {
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.dropdownItem:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}

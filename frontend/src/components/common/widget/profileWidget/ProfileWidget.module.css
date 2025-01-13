@@ -1,0 +1,33 @@
+.roundedDropdownUser {
+  position: relative !important;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.roundedDropdownUser:hover {
+  border-style: none !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  padding: 5px !important;
+  border-radius: 10px !important;
+  transition: all 0.3s ease;
+}
+
+.dropdownMenuUser {
+  width: 200px;
+  margin: 5px 0px 0px -165px !important;
+}
+.dropdown-item {
+  background-color: transparent !important;
+}
+.logout,
+.profile,
+.conf {
+  text-decoration: none !important;
+  font-family: arimo !important;
+  font-weight: 300 !important;
+  color: var(--color-text-2) !important;
+}
+.profile:hover,
+.conf:hover,
+.logout:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}

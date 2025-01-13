@@ -1,0 +1,22 @@
+.categorias {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5px 5px 10px 5px !important;
+  background-color: var(--bg-1);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text-3);
+  margin: 4px !important;
+  padding: 2.5px !important;
+  list-style: none;
+  font-family: Montserrat;
+  font-size: 1rem;
+  font-weight: 600;
+}
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -1,0 +1,33 @@
+.containerQuantity {
+  display: flex;
+}
+
+.containerQuantity button {
+  margin-top: 40px !important;
+  border: none;
+  background: none;
+}
+.quantity {
+  margin-top: 40px !important;
+  color: #333;
+}
+
+.angle {
+  font-size: 2rem;
+  position: relative;
+  top: 0.15rem;
+  margin: 0 20px !important;
+  cursor: pointer;
+  color: rgb(216, 216, 216);
+  transition: all 0.5s;
+}
+
+.angle:hover {
+  color: rgb(71, 190, 115);
+}
+
+.qt {
+  padding: 5px !important;
+  font-size: 1.25rem;
+  color: rgb(153, 153, 153);
+}

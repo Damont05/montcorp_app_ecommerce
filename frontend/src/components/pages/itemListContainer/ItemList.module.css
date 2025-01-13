@@ -1,0 +1,43 @@
+.container_productos {
+  margin-top: 50px !important;
+  padding: 0 !important;
+  grid-area: productos;
+  .productos_lista {
+    .header_product {
+      display: flex;
+      justify-content: end;
+      margin: 0rem 3.125rem 1.25rem 0rem;
+      .ordenarFiltro {
+        span {
+          margin: 0.3125rem;
+          padding: 0.3125rem;
+          font-family: montserrat;
+          font-weight: 600;
+          font-size: 1rem;
+        }
+      }
+      select {
+        border: none;
+        background: none;
+        outline: none;
+        font-family: montserrat;
+        font-weight: 300;
+        font-size: 0.9375rem;
+        color: var(--color-text-3);
+      }
+      select:hover {
+        cursor: pointer;
+      }
+    }
+    list_productos_shop {
+      padding: 0 !important;
+      .content_producto {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

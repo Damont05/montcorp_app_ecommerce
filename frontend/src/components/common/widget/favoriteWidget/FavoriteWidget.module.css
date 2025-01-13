@@ -1,0 +1,12 @@
+.roundedDropdownFavorite {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.roundedDropdownFavorite:hover {
+  border-style: none !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  padding: 5px !important;
+  border-radius: 10px !important;
+  transition: all 0.3s ease;
+}
