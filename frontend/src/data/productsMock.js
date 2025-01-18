@@ -1,4 +1,4 @@
-export let products = [
+export const products = [
   {
     nombre: "Camiseta",
     precio: 20.99,
