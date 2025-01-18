@@ -1,19 +1,18 @@
-//**************************************************************************/
-//      |       Author      |       description         |    Date    |
-//      |------------------ |---------------------------|------------|
-//             Damont       |        Creation Server    | 16-12-2024
-//      |------------------ |---------------------------|------------|
-//      |                   |                           |            |
-//**************************************************************************/
+//****************************************************************************************************/
+//      |       Author      |                     description                   |    Date         |
+//      |-----------------------------------------------------------------------------------------|
+//             Damont          Creation Server                                    16-12-2024
+//      |-----------------------------------------------------------------------------------------|
+//             Damont          REQ-BACK-0230: Create api get user id                 17-01-2025
+//****************************************************************************************************/
 import express from 'express';
 //import swaggerJsdoc from 'swagger-jsdoc'
 //import swaggerUi from 'swagger-ui-express'
 import cors from 'cors';
 //import passport from 'passport';
 //import cookieParser from 'cookie-parser';
-//import db from './database/conn.js';
 import {pool}  from './database/conn.js';
-import { router } from './routes/authRoute.js';
+import { router } from './routes/indexRoute.js'; //REQ-BACK-0230 Damont
 import { config } from './config/config.js';
 import { logger } from './utils/loggersHandle.js';
 //import { initPassport } from './config/config.passport.js';
@@ -24,6 +23,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(router);
+
 
 //Passport config
 //initPassport();

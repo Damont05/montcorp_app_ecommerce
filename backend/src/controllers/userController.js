@@ -1,18 +1,18 @@
-//**************************************************************************/
-//      |       Author      |       description         |    Date    |
-//      |------------------ |---------------------------|------------|
-//             Damont       |        Creation class     | 16-12-2024
-//      |------------------ |---------------------------|------------|
-//      |                   |                           |            |
-//**************************************************************************/
+//****************************************************************************************************/
+//      |       Author      |                     description                   |    Date         |
+//      |-----------------------------------------------------------------------------------------|
+//             Damont          REQ-BACK-0230: Create api get user id                17-01-2025
+//      |-----------------------------------------------------------------------------------------|
+//****************************************************************************************************/
 
-import {//getUsersService, 
+/*import {//getUsersService, 
         getUserIdService, 
         //updateUserService, 
         //deleteUserService,
         createUserService
-        } from '#services/userService.js';
+        } from '#services/userService.js';*/
 
+import { findUserById } from '#dao/UserDao.js'; 
 import { logger } from '#utils/loggersHandle.js';
 import { HandleHttp } from '#utils/httpHandle.js';
 
@@ -38,13 +38,12 @@ export const createUserController = async (req, res) => {
     try {
         logger.debug("[createUserController] - call service");
         const newUser = await createUserService({ fullname, email, phone, address, password });
-        return  HandleHttp.created(res, newUser, "User has been created" ); //res.status(201).json({ message: "User has been created", user: newUser });
+        return  HandleHttp.created(res, newUser, "User has been created" );
 
     } catch (error) {
         HandleHttp.error(res, error, 500);
     }
 };
-
 
 /**
  * @description Get all users
@@ -75,21 +74,19 @@ export const getUsersController = async (req,res) => {
 
 /**
  * @description Get user by ID
- * @route GET /users/api/:id
+ * @route GET /api/user/get/:id
  */
 export const getUserIdController = async(req,res) => {
     logger.debug("[getUserIdController] - INI");
-
     try {
-        logger.debug("[createUserController] - call service");
-        const user = await getUserIdService(email);
-        return  HandleHttp.success(res, user, "user" ); //res.status(201).json({ message: "User has been created", user: newUser });
-
+        const userId = req.params.id_user;
+        logger.debug('[getUserIdController] - userId: ', userId);
+        const user = await findUserById(userId);
+        return  HandleHttp.success(res, user, "user" );
     } catch (error) {
         HandleHttp.error(res, error, 500);
     }
 }
-
 
 /**
  * @description Update user by ID
