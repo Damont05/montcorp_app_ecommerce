@@ -4,6 +4,8 @@
 //             Damont          Creation Server                                    16-12-2024
 //      |-----------------------------------------------------------------------------------------|
 //             Damont          REQ-BACK-0230: Create api get user id                 17-01-2025
+//      |-----------------------------------------------------------------------------------------|
+//              Damont          BACK-001: Linea en blanco                         17-01-2025
 //****************************************************************************************************/
 import express from 'express';
 //import swaggerJsdoc from 'swagger-jsdoc'
@@ -24,6 +26,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(router);
 
+
+//comentario  //BACK-001:
 
 //Passport config
 //initPassport();
