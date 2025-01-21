@@ -15,7 +15,7 @@ const LogoutPresentation = () => {
       setTimeout(() => {
         // Redirigir al usuario a la página de inicio de sesión
         navigate("/login");
-      }, 3000);
+      }, 6000);
     };
     logout();
   }, [navigate]);

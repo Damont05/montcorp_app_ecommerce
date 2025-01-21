@@ -1,16 +1,49 @@
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoginPresentation from "./LoginPresentation.jsx";
 
 const LoginLogic = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
-  const navigate = useNavigate();
+  const [stateButton, setStateButton] = useState(false);
+  const [responseMessage, setResponseMessage] = useState({
+    message: "",
+    color: "",
+  });
 
-  const handleLogin = (email, password) => {
-    fetch("http://localhost:8080/auth/login", {
+  // Valida que los inputs no esten vacios y la estructura del correo sea correcto
+  const validateForm = () => {
+    if (!email || !password) {
+      handleResponseMessage("Todos los campos son obligatorios.", "red");
+      return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      handleResponseMessage("Correo electrónico no válido.", "red");
+      return false;
+    }
+  };
+
+  // Cambia el estado para validad si el button muestra texto o un spinner
+  const handleStateButton = () => {
+    setStateButton((prevState) => !prevState);
+  };
+
+  // Asignacion de mensaje y duracion en la que se muestra
+  const handleResponseMessage = (message, color, duracion = 4000) => {
+    setResponseMessage({ message, color });
+    setTimeout(() => {
+      setResponseMessage({ message: "", color: "" });
+    }, duracion);
+  };
+
+  // Consumo de api para autenticar el usuario
+  const loginUser = (email, password) => {
+    // Login user http://localhost:8080/api/auth/login [POST]
+    fetch("http://localhost:8080/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,42 +59,34 @@ const LoginLogic = () => {
         return response.json();
       })
       .then((data) => {
-        if (data.ok === true) {
-          const { user, token } = data.userLogin;
-          // Limitar la expiración del token a 15 minutos
-          const expires = new Date(new Date().getTime() + 15 * 60 * 1000);
+        const { status, message, token } = data;
+
+        if (status === 200 && token) {
           // Guardar token en una cookie
           Cookies.set("token", token, {
-            expires,
             secure: true,
             sameSite: "strict",
           });
-          // Guardar datos del usuario en cookie
-          Cookies.set(
-            "user",
-            JSON.stringify({
-              id: user.id,
-              name: user.name,
-              email: user.email,
-              phone: user.phone,
-              address: user.address,
-            }),
-            { expires: 7, secure: true, sameSite: "strict" }
-          );
-          navigate("/"); // Redireccionar al inicio después de iniciar sesión y guardar los datos
+
+          // Redireccionar al dashboard de productos
+          navigate("/");
         } else {
-          throw new Error("Error desconocido");
+          throw new Error(message || "Error desconocido");
         }
       })
       .catch((error) => {
-        setError(error.message || "Error de red");
+        handleResponseMessage(error.message || "Error de red", "red");
       });
   };
 
+  // Manejo de envio del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError(""); // Limpiar errores anteriores
-    handleLogin(email, password);
+
+    handleResponseMessage("", ""); // Limpia el estado en caso que tenga un mensaje anterior
+    loginUser(email, password);
+    if (validateForm()) {
+    }
   };
 
   return (
@@ -70,8 +95,9 @@ const LoginLogic = () => {
       setEmail={setEmail}
       password={password}
       setPassword={setPassword}
-      error={error} // Pasar el estado de error al componente Login
+      responseMessage={responseMessage}
       handleSubmit={handleSubmit}
+      handleStateButton={handleStateButton}
     />
   );
 };
