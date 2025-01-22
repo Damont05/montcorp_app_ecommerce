@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import LoginPresentation from "./LoginPresentation.jsx";
 
 const LoginLogic = () => {
