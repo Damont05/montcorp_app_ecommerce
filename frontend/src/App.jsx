@@ -5,18 +5,18 @@ import ProductsContextProvider from "./context/ProductsContext.jsx";
 import CartContextProvider from "./context/CartContext.jsx";
 import FavoritesContextProvider from "./context/FavoritesContext.jsx";
 import Layout from "./components/layout/Layout.jsx";
-import { HomeLogic } from "./components/pages/home";
-import { ItemDetailLogic } from "./components/pages/itemDetail";
-import { ItemListLogic } from "./components/pages/itemListContainer";
-import { CartLogic } from "./components/features/cart";
-import { FavoritesLogic } from "./components/features/favorites";
-import { CheckoutLogic } from "./components/features/checkout";
-import { ProfileLogic } from "./components/pages/profile";
-import { ConfigurationLogic } from "./components/pages/configuration";
-import { NotFoundLogic } from "./components/pages/notFound";
-import { LogoutLogic } from "./components/pages/logout";
 import LoginLogic from "./components/pages/login/LoginLogic.jsx";
 import RegisterLogic from "./components/pages/register/RegisterLogic.jsx";
+import ConfigurationLogic from "./components/pages/configuration/ConfigurationLogic.jsx";
+import HomeLogic from "./components/pages/home/HomeLogic.jsx";
+import ItemDetailLogic from "./components/pages/itemDetail/ItemDetailLogic.jsx";
+import ItemListLogic from "./components/pages/itemListContainer/ItemListLogic.jsx";
+import LogoutLogic from "./components/pages/logout/LogoutLogic.jsx";
+import NotFoundLogic from "./components/pages/notFound/NotFoundLogic.jsx";
+import ProfileLogic from "./components/pages/profile/ProfileLogic.jsx";
+import CartLogic from "./components/features/cart/CartLogic.jsx";
+import CheckoutLogic from "./components/features/checkout/CheckoutLogic.jsx";
+import FavoritesLogic from "./components/features/favorites/FavoritesLogic.jsx";
 
 function App() {
   return (

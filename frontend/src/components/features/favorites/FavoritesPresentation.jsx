@@ -1,5 +1,6 @@
+import ProductCardLogic from "../products/productCard/ProductCardLogic";
 import "./Favorites.module.css";
-import { ProductCardLogic } from "../../features/products/productCard";
+
 
 const FavoritesPresentation = () => {
   return (
