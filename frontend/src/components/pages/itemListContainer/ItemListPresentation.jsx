@@ -1,7 +1,7 @@
 import "./ItemList.module.css";
 import { Container, Col, Row } from "react-bootstrap";
-import { ProductCardLogic } from "../../features/products/productCard";
-import { FiltersProductsLogic } from "../../common/sections/filtersProducts/";
+import ProductCardLogic from "../../features/products/productCard/ProductCardLogic";
+import FiltersProductsLogic from "../../common/sections/filtersProducts/FiltersProductsLogic";
 
 const ItemListPresentation = ({ items, error }) => {
   return (
