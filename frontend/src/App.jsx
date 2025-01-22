@@ -14,9 +14,9 @@ import { CheckoutLogic } from "./components/features/checkout";
 import { ProfileLogic } from "./components/pages/profile";
 import { ConfigurationLogic } from "./components/pages/configuration";
 import { NotFoundLogic } from "./components/pages/notFound";
-import { LoginLogic } from "./components/pages/login";
 import { LogoutLogic } from "./components/pages/logout";
-import { RegisterLogic } from "./components/pages/register";
+import LoginLogic from "./components/pages/login/LoginLogic.jsx";
+import RegisterLogic from "./components/pages/register/RegisterLogic.jsx";
 
 function App() {
   return (
