@@ -8,23 +8,24 @@ import ItemDetailPresentation from "./ItemDetailPresentation.jsx";
 
 const ItemDetailLogic = () => {
   const { id } = useParams();
-  const [item, setItem] = useState({});
-  const { addToCart } = useContext(CartContex);
+  const [product, setProduct] = useState({});
+  const [counter, setCounter] = useState(1);
 
   useEffect(() => {
     const productcolection = collection(db, "products");
     const refDoc = doc(productcolection, id);
     getDoc(refDoc).then((res) => {
-      setItem({ id: res.id, ...res.data() });
+      setProduct({ id: res.id, ...res.data() });
     });
   }, [id]);
 
-  const onAdd = (cantidad) => {
-    let product = { ...item, cantidad: cantidad };
-    addToCart(product);
-  };
-
-  return <ItemDetailPresentation item={item} onAdd={onAdd} />;
+  return (
+    <ItemDetailPresentation
+      product={product}
+      counter={counter}
+      setCounter={setCounter}
+    />
+  );
 };
 
 export default ItemDetailLogic;

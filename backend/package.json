@@ -4,8 +4,9 @@
   "description": "Microservice Auth",
   "main": "index.js",
   "imports": {
-    "#services/*": "./src/services/*",
+    "#dao/*": "./src/dao/*",
     "#controllers/*": "./src/controllers/*",
+    "#middleware/*": "./src/middleware/*",
     "#utils/*": "./src/utils/*"
   },
   "scripts": {

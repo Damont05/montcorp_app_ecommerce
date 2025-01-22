@@ -1,11 +1,12 @@
 import styles from "./Navbar.module.css";
 import { InputGroup, Form, Navbar, Nav } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
-import { NotificationsWidgetLogic } from "../../common/widget/notificationsWidget";
-import { CartWidgetLogic } from "../../common/widget/cartWidget";
-import { FavoriteWidgetLogic } from "../../common/widget/favoriteWidget";
-import { ProfileWidgetLogic } from "../../common/widget/profileWidget";
-import { MenuCategoriesLogic } from "../../common/sections/menuCategories";
+
+import MenuCategoriesLogic from "../../common/sections/menuCategories/MenuCategoriesLogic";
+import CartWidgetLogic from "../../common/widget/cartWidget/CartWidgetLogic";
+import FavoriteWidgetLogic from "../../common/widget/favoriteWidget/FavoriteWidgetLogic";
+import NotificationsWidgetLogic from "../../common/widget/notificationsWidget/NotificationsWidgetLogic";
+import ProfileWidgetLogic from "../../common/widget/profileWidget/ProfileWidgetLogic";
 
 const WidgetWrapper = ({ children }) => (
   <div className="d-flex align-items-center mx-2">{children}</div>

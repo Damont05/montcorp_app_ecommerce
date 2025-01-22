@@ -3,24 +3,15 @@
 //      |-----------------------------------------------------------------------------------------|
 //             Damont          Creation Server                                    16-12-2024
 //      |-----------------------------------------------------------------------------------------|
+//             Damont          REQ-BACK-0230: Create api get user id                 17-01-2025
 //****************************************************************************************************/
 
 import { Router } from "express";
-import { loginController, registerController } from '../controllers/authController.js';
+import { router as userRoute } from '../routes/userRoute.js'; //REQ-BACK-0230
+import { router as authRoute } from '../routes/authRoute.js';
+const router = Router();
 
-const router = Router()
-
-/** 
- * Register user
- * /api/auth/register [POST]
-*/
-router.post("/register", registerController);
-
-/** 
- * Login user
- * /api/auth/login [POST]
-*/
-router.post("/login", loginController);
-
+router.use("/api/auth", authRoute);
+router.use("/api/user", userRoute); //REQ-BACK-0230
 
 export { router };
