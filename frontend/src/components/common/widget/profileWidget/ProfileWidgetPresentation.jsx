@@ -2,34 +2,38 @@ import { Badge, Dropdown } from "react-bootstrap";
 import styles from "./ProfileWidget.module.css";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../../context/AuthContext";
 
 const ProfileWidgetPresentation = ({}) => {
-  const userDataString = Cookies.get("user");
-  let userData = "";
-  if (userDataString) {
-    userData = JSON.parse(userDataString);
-  } else {
-    console.log("No se encontraron datos de usuario");
-  }
+  const { isAuthenticated, logout } = useContext(AuthContext);
+  const tokenCookies = Cookies.get("token");
+
   return (
     <>
-      {userDataString ? (
+      {isAuthenticated ? (
         <Dropdown>
           <Dropdown.Toggle
             id="dropdown-basic-button"
             className={`${styles.roundedDropdownUser}`}
           >
-            {userData.name.slice(0, 1).toUpperCase()}
+            {" "}
+            j{/* {userData.name.slice(0, 1).toUpperCase()} */}
           </Dropdown.Toggle>
 
           <Dropdown.Menu className={`${styles.dropdownMenuUser}`}>
             <Dropdown.Item className={`${styles.profile}`} href="/profile">
-              {userData.name}
+              j{/* {userData.name} */}
             </Dropdown.Item>
             <Dropdown.Item className={`${styles.conf}`} href="/configuration">
               Configuración
             </Dropdown.Item>
-            <Dropdown.Item className={`${styles.logout}`} href="/logout">
+            <Dropdown.Item
+              className={`${styles.logout}`}
+              onClick={() => {
+                logout(tokenCookies);
+              }}
+            >
               Cerrar sesión
             </Dropdown.Item>
           </Dropdown.Menu>
