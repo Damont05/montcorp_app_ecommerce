@@ -36,11 +36,10 @@ export class HandleHttp {
     }
 
     //Success with Token.
-    static successToken(res, user, token, message, statusCode = 200) {
+    static successToken(res, token, message, statusCode = 200) {
         const response = {
             status: statusCode,
             message,
-            user,
             token,
             timestamp: new Date().toISOString(),
         };
@@ -52,6 +51,16 @@ export class HandleHttp {
             status: statusCode,
             message: message,
             user,
+            timestamp: new Date().toISOString(),
+        };
+        return res.status(statusCode).json(response);
+    }
+
+    static createdProduct(res, product, message, statusCode = 201) {
+        const response = {
+            status: statusCode,
+            message: message,
+            product,
             timestamp: new Date().toISOString(),
         };
         return res.status(statusCode).json(response);
