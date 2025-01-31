@@ -40,7 +40,6 @@ export const registerController = async (req, res) => {
         const hashedPassword = await bcryptjs.hash(password, 10);
         //Create new user
         const newUser = await createUser(name, lastname, email, hashedPassword);
-        //res.status(201).json({ message: 'User registered successfully' });
         return  HandleHttp.created(res, newUser, "User registered successfully" );
 
     } catch (error) {
@@ -64,6 +63,7 @@ export const loginController = async (req, res) => {
     }
 
     try {
+        logger.info("[loginController] - email: " + email);
         //Email exist validate.
         const users = await findUserByEmail(email);
         if (users.length === 0) { return HandleHttp.error(res, "User not found", 404);}
@@ -71,16 +71,18 @@ export const loginController = async (req, res) => {
         //Ini users
         const user = users[0];
 
+        logger.info("[loginController] - user: " + user.id_user);
+
         // Verificar la contraseña (usa bcryptjs o tu método preferido)
         const isPasswordValid = await bcryptjs.compare(password, user.password);
         if (!isPasswordValid) {
             return HandleHttp.error(res, "Invalid password", 401);
         }
-        const token = jwt.sign({ id: user.id }, config.JWT_SECRET, { expiresIn: '1h' });
-        return  HandleHttp.successToken(res, user, token, "Login successfully" );
+        const token = jwt.sign({ id: user.id_user }, config.JWT_SECRET, { expiresIn: '1h' });
+        return  HandleHttp.successToken(res, token, "Login successfully" );
 
     } catch (error) {
-        logger.error("[registerController] - Error: ", error);
+        logger.error("[loginController] - Error: ", error);
         return HandleHttp.error(res, 'Internal server error', 500);
     }
 };

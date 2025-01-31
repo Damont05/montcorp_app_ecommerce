@@ -39,6 +39,7 @@ export const findUserByEmail = async (email) => {
     const query = 'SELECT * FROM user WHERE email = ?';
     try {
         const [results] = await pool.query(query, [email]);
+        logger.info("[findUserByEmail DAO] - results: " + results);
         return results;
     } catch (err) {
         logger.error('Error finding user by email:', err); 
