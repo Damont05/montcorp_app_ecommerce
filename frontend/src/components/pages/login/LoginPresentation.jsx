@@ -33,11 +33,13 @@ const LoginPresentation = ({
               {/* Panel Derecho */}
               <div className={`col-12 col-md-6 ${styles.rightPanel}`}>
                 <div className={styles.logo_login}>
-                  <img
-                    src="https://res.cloudinary.com/dqngvzxqy/image/upload/v1714695931/proyects/vector/icons/letra-v_1_xpjl6x.png"
-                    alt=""
-                  />
-                  <h1>Vector</h1>
+                  <div className={styles.content_logo}>
+                    <img
+                      src="https://res.cloudinary.com/dqngvzxqy/image/upload/v1714695931/proyects/vector/icons/letra-v_1_xpjl6x.png"
+                      alt=""
+                    />
+                    <h1>Vector</h1>
+                  </div>
                 </div>
                 {/* Contenido del formulario */}
                 <div className="text-center">
