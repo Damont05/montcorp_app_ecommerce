@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import {  useState } from "react";
+import { useContext, useState } from "react";
 import LoginPresentation from "./LoginPresentation.jsx";
+import { AuthContext } from "../../../context/AuthContext.jsx";
 
 const LoginLogic = () => {
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [stateButton, setStateButton] = useState(false);
@@ -62,14 +64,7 @@ const LoginLogic = () => {
         const { status, message, token } = data;
 
         if (status === 200 && token) {
-          // Guardar token en una cookie
-          Cookies.set("token", token, {
-            secure: true,
-            sameSite: "strict",
-          });
-
-          // Redireccionar al dashboard de productos
-          navigate("/");
+          login(token);
         } else {
           throw new Error(message || "Error desconocido");
         }
