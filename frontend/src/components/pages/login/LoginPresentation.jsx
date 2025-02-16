@@ -113,7 +113,7 @@ const LoginPresentation = ({
                 </Form>
 
                 <div className="text-center mt-2">
-                  <a href="#" className={styles.forgotPassword}>
+                  <a href="/recoverPassword" className={styles.forgotPassword}>
                     ¿Has olvidado tu contraseña?
                   </a>
                 </div>

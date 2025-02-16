@@ -19,6 +19,7 @@ import FavoritesLogic from "./components/features/favorites/FavoritesLogic.jsx";
 import AuthContextProvider from "./context/AuthContext.jsx";
 import ProtectedRoutes from "./components/features/auth/ProtectedRoutes.jsx";
 import PublicRoutes from "./components/features/auth/PublicRoutes.jsx";
+import RecoverPasswordLogic from "./components/pages/recoverPassword/RecoverPasswordLogic.jsx";
 
 function App() {
   return (
@@ -33,6 +34,10 @@ function App() {
                   <Route element={<PublicRoutes />}>
                     <Route path="/login" element={<LoginLogic />} />
                     <Route path="/register" element={<RegisterLogic />} />
+                    <Route
+                      path="/recoverPassword"
+                      element={<RecoverPasswordLogic />}
+                    />
                   </Route>
                   <Route element={<Layout />}>
                     {/* Rutas Públicas */}
