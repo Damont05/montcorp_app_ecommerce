@@ -20,6 +20,7 @@ import AuthContextProvider from "./context/AuthContext.jsx";
 import ProtectedRoutes from "./components/features/auth/ProtectedRoutes.jsx";
 import PublicRoutes from "./components/features/auth/PublicRoutes.jsx";
 import RecoverPasswordLogic from "./components/pages/recoverPassword/RecoverPasswordLogic.jsx";
+import UsersContextProvider from "./context/UsersContext.jsx";
 
 function App() {
   return (
@@ -28,37 +29,22 @@ function App() {
     >
       <DarkModeProvider>
         <AuthContextProvider>
-          <ProductsContextProvider>
-            <FavoritesContextProvider>
-              <CartContextProvider>
-                <Routes>
-                  {/* Rutas renderizadas sin el NavBar */}
-                  <Route element={<PublicRoutes />}>
-                    <Route path="/login" element={<LoginLogic />} />
-                    <Route path="/register" element={<RegisterLogic />} />
-                    <Route
-                      path="/recoverPassword"
-                      element={<RecoverPasswordLogic />}
-                    />
-                  </Route>
-                  <Route element={<Layout />}>
-                    {/* Rutas Públicas */}
-                    <Route path="*" element={<NotFoundLogic />} />
-                    <Route path="/" element={<HomeLogic />} />
+          <UsersContextProvider>
+            <ProductsContextProvider>
+              <FavoritesContextProvider>
+                <CartContextProvider>
+                  <Routes>
+                    {/* Rutas públicas: el usuario no autenticado puede acceder */}
+                    <Route element={<PublicRoutes />}>
+                      <Route path="/login" element={<LoginLogic />} />
+                      <Route path="/register" element={<RegisterLogic />} />
+                      <Route
+                        path="/recoverPassword"
+                        element={<RecoverPasswordLogic />}
+                      />
+                    </Route>
 
-                    <Route path="/products" element={<ItemListLogic />} />
-                    <Route path="/cart" element={<CartLogic />} />
-                    <Route path="/favorites" element={<FavoritesLogic />} />
-                    <Route
-                      path="/itemDetail/:id"
-                      element={<ItemDetailLogic />}
-                    />
-                    <Route
-                      path="/filtros/:key/:value"
-                      element={<ItemListLogic />}
-                    />
-
-                    {/* Rutas Protegidas */}
+                    {/* Rutas protegidas: requieren que el usuario esté autenticado */}
                     <Route element={<ProtectedRoutes />}>
                       <Route path="/profile" element={<ProfileLogic />} />
                       <Route path="/checkout" element={<CheckoutLogic />} />
@@ -67,11 +53,28 @@ function App() {
                         element={<ConfigurationLogic />}
                       />
                     </Route>
-                  </Route>
-                </Routes>
-              </CartContextProvider>
-            </FavoritesContextProvider>
-          </ProductsContextProvider>
+
+                    {/* Rutas sin autenticación - NavBar está presente */}
+                    <Route element={<Layout />}>
+                      <Route path="/" element={<HomeLogic />} />
+                      <Route path="/products" element={<ItemListLogic />} />
+                      <Route path="/cart" element={<CartLogic />} />
+                      <Route path="/favorites" element={<FavoritesLogic />} />
+                      <Route
+                        path="/itemDetail/:id"
+                        element={<ItemDetailLogic />}
+                      />
+                      <Route
+                        path="/filtros/:key/:value"
+                        element={<ItemListLogic />}
+                      />
+                      <Route path="*" element={<NotFoundLogic />} />
+                    </Route>
+                  </Routes>
+                </CartContextProvider>
+              </FavoritesContextProvider>
+            </ProductsContextProvider>
+          </UsersContextProvider>
         </AuthContextProvider>
       </DarkModeProvider>
     </BrowserRouter>

@@ -1,7 +1,7 @@
 import styles from "./Navbar.module.css";
 import { InputGroup, Form, Navbar, Nav } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
-
+import Cookies from "js-cookie";
 import MenuCategoriesLogic from "../../common/sections/menuCategories/MenuCategoriesLogic";
 import CartWidgetLogic from "../../common/widget/cartWidget/CartWidgetLogic";
 import FavoriteWidgetLogic from "../../common/widget/favoriteWidget/FavoriteWidgetLogic";
@@ -12,12 +12,22 @@ const WidgetWrapper = ({ children }) => (
   <div className="d-flex align-items-center mx-2">{children}</div>
 );
 
-const NavbarPresentation = ({
-  data: { search, focused, setFocused, handleSearch },
-}) => {
+const NavbarPresentation = ({ data }) => {
+  const {
+    search,
+    focused,
+    setFocused,
+    handleSearch,
+    handleSubmit,
+    responseMessage,
+  } = data;
   return (
     <>
-      <Navbar expand="lg" className="py-3">
+      <Navbar
+        onLoad={handleSubmit}
+        expand="lg"
+        className={`py-3 ${styles.navBarBody}`}
+      >
         {/* LOGO */}
         <Navbar.Brand href="/" className={styles.navbarLogo}>
           <p>Vector</p>

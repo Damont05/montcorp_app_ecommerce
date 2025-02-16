@@ -1,3 +1,12 @@
+.navBarBody {
+  top: 0;
+  left: 0;
+  position: sticky;
+  z-index: 3;
+  background-color: #ffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .navbarLogo {
   margin: 5px 25px !important;
   font-family: Montserrat;
