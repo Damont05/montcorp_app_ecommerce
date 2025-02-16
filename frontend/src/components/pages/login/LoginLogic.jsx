@@ -15,20 +15,6 @@ const LoginLogic = () => {
     color: "",
   });
 
-  // Valida que los inputs no esten vacios y la estructura del correo sea correcto
-  const validateForm = () => {
-    if (!email || !password) {
-      handleResponseMessage("Todos los campos son obligatorios.", "red");
-      return false;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      handleResponseMessage("Correo electrónico no válido.", "red");
-      return false;
-    }
-  };
-
   // Cambia el estado para validad si el button muestra texto o un spinner
   const handleStateButton = () => {
     setStateButton((prevState) => !prevState);
@@ -44,7 +30,6 @@ const LoginLogic = () => {
 
   // Consumo de api para autenticar el usuario
   const loginUser = (email, password) => {
-    // Login user http://localhost:8080/api/auth/login [POST]
     fetch("http://localhost:8080/api/auth/login", {
       method: "POST",
       headers: {
@@ -53,24 +38,28 @@ const LoginLogic = () => {
       body: JSON.stringify({ email, password }),
     })
       .then((response) => {
-        if (!response.ok) {
-          return response.json().then((errors) => {
-            throw new Error(errors.error);
-          });
-        }
-        return response.json();
+        return response.json().then((data) => {
+          // Agregamos el response.ok aquí para manejar el estado correctamente
+          if (!response.ok) {
+            throw new Error(data.message);
+          }
+          return data;
+        });
       })
       .then((data) => {
         const { status, message, token } = data;
 
         if (status === 200 && token) {
-          login(token);
+          setTimeout(() => {
+            login(token);
+          }, 2000);
+          handleResponseMessage(message, "green");
         } else {
-          throw new Error(message || "Error desconocido");
+          handleResponseMessage(message, "red");
         }
       })
       .catch((error) => {
-        handleResponseMessage(error.message || "Error de red", "red");
+        handleResponseMessage(error.message, "red");
       });
   };
 
@@ -80,8 +69,6 @@ const LoginLogic = () => {
 
     handleResponseMessage("", ""); // Limpia el estado en caso que tenga un mensaje anterior
     loginUser(email, password);
-    if (validateForm()) {
-    }
   };
 
   return (

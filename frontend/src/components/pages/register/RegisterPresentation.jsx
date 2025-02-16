@@ -49,8 +49,8 @@ const RegisterPresentation = ({
 
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className={styles.customFormGroup}>
-                    {/* Nombre */}
                     <Form.Control
+                      id="nameInput" // Asegura que el input tenga un ID único
                       type="text"
                       name="name"
                       className={styles.customInputField}
@@ -59,13 +59,18 @@ const RegisterPresentation = ({
                       placeholder=""
                       autoComplete="off"
                     />
-                    <label className={styles.customFloatingLabel}>
+                    <label
+                      htmlFor="nameInput"
+                      className={styles.customFloatingLabel}
+                    >
                       Nombres
                     </label>
                   </Form.Group>
+
                   <Form.Group className={styles.customFormGroup}>
                     {/* Apellidos */}
                     <Form.Control
+                      id="lastNameInput"
                       type="text"
                       name="lastname"
                       className={styles.customInputField}
@@ -74,13 +79,17 @@ const RegisterPresentation = ({
                       placeholder=""
                       autoComplete="off"
                     />
-                    <label className={styles.customFloatingLabel}>
+                    <label
+                      htmlFor="lastNameInput"
+                      className={styles.customFloatingLabel}
+                    >
                       Apellidos
                     </label>
                   </Form.Group>
                   <Form.Group className={styles.customFormGroup}>
                     {/* Correo */}
                     <Form.Control
+                      id="emailInput"
                       type="email"
                       name="email"
                       className={styles.customInputField}
@@ -89,13 +98,17 @@ const RegisterPresentation = ({
                       placeholder=""
                       autoComplete="off"
                     />
-                    <label className={styles.customFloatingLabel}>
+                    <label
+                      htmlFor="emailInput"
+                      className={styles.customFloatingLabel}
+                    >
                       Correo electrónico
                     </label>
                   </Form.Group>
                   <Form.Group className={styles.customFormGroup}>
                     {/* Contraseña */}
                     <Form.Control
+                      id="passwordInput"
                       type="password"
                       name="password"
                       className={styles.customInputField}
@@ -104,7 +117,10 @@ const RegisterPresentation = ({
                       placeholder=""
                       autoComplete="off"
                     />
-                    <label className={styles.customFloatingLabel}>
+                    <label
+                      htmlFor="passwordInput"
+                      className={styles.customFloatingLabel}
+                    >
                       Contraseña
                     </label>
                   </Form.Group>

@@ -27,34 +27,36 @@ const RecoverPassword = ({ data }) => {
                   </div>
 
                   <Form>
-                    <Form.Group
-                      className={styles.customFormGroup}
-                      controlId="formPassword"
-                    >
+                    <Form.Group className={styles.customFormGroup}>
                       <Form.Control
+                        id="newPasswordInput"
                         type="password"
                         name="newPassword"
                         className={styles.customInputField}
                         placeholder=""
                         autoComplete="off"
                       />
-                      <label className={styles.customFloatingLabel}>
+                      <label
+                        htmlFor="newPasswordInput"
+                        className={styles.customFloatingLabel}
+                      >
                         Nueva contraseña
                       </label>
                     </Form.Group>
 
-                    <Form.Group
-                      className={styles.customFormGroup}
-                      controlId="formPassword"
-                    >
+                    <Form.Group className={styles.customFormGroup}>
                       <Form.Control
+                        id="repeatPasswordInput"
                         type="password"
                         name="repeatPassword"
                         className={styles.customInputField}
                         placeholder=""
                         autoComplete="off"
                       />
-                      <label className={styles.customFloatingLabel}>
+                      <label
+                        htmlFor="repeatPasswordInput"
+                        className={styles.customFloatingLabel}
+                      >
                         Repetir contraseña
                       </label>
                     </Form.Group>
@@ -124,18 +126,19 @@ const RecoverPassword = ({ data }) => {
                   </div>
 
                   <Form>
-                    <Form.Group
-                      className={styles.customFormGroup}
-                      controlId="formEmail"
-                    >
+                    <Form.Group className={styles.customFormGroup}>
                       <Form.Control
+                        id="emailInput"
                         type="email"
                         name="email"
                         className={`${styles.customInputField}`}
                         placeholder=""
                         autoComplete="off"
                       />
-                      <label className={styles.customFloatingLabel}>
+                      <label
+                        htmlFor="emailInput"
+                        className={styles.customFloatingLabel}
+                      >
                         Correo electrónico
                       </label>
                     </Form.Group>
