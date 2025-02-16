@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 export const AuthContext = createContext();
 
@@ -18,7 +18,7 @@ const AuthContextProvider = ({ children }) => {
       try {
         const decodedToken = jwtDecode(token);
         setIsAuthenticated(true);
-        setUserId(decodedToken.id); 
+        setUserId(decodedToken.id);
       } catch (error) {
         setMessage(error.message || "Error decodificando token");
       }
@@ -32,7 +32,7 @@ const AuthContextProvider = ({ children }) => {
     });
     const decodedToken = jwtDecode(token);
     setIsAuthenticated(true);
-    setUserId(decodedToken.id); 
+    setUserId(decodedToken.id);
     navigate("/");
   };
 

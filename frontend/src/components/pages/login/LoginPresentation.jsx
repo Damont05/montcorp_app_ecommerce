@@ -48,11 +48,9 @@ const LoginPresentation = ({
                 </div>
 
                 <Form onSubmit={handleSubmit}>
-                  <Form.Group
-                    className={styles.customFormGroup}
-                    controlId="formEmail"
-                  >
+                  <Form.Group className={styles.customFormGroup}>
                     <Form.Control
+                      id="emailInput"
                       type="email"
                       name="email"
                       className={`${styles.customInputField}`}
@@ -61,16 +59,17 @@ const LoginPresentation = ({
                       placeholder=""
                       autoComplete="off"
                     />
-                    <label className={styles.customFloatingLabel}>
+                    <label
+                      htmlFor="emailInput"
+                      className={styles.customFloatingLabel}
+                    >
                       Correo electrónico
                     </label>
                   </Form.Group>
 
-                  <Form.Group
-                    className={styles.customFormGroup}
-                    controlId="formPassword"
-                  >
+                  <Form.Group className={styles.customFormGroup}>
                     <Form.Control
+                      id="passwordInput"
                       type="password"
                       name="password"
                       className={styles.customInputField}
@@ -79,7 +78,10 @@ const LoginPresentation = ({
                       placeholder=""
                       autoComplete="off"
                     />
-                    <label className={styles.customFloatingLabel}>
+                    <label
+                      htmlFor="passwordInput"
+                      className={styles.customFloatingLabel}
+                    >
                       Contraseña
                     </label>
                   </Form.Group>

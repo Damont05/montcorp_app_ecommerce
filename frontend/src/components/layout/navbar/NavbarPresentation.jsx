@@ -33,6 +33,8 @@ const NavbarPresentation = ({
             >
               <InputGroup className={styles.searchInputGroup}>
                 <Form.Control
+                  id="buscar"
+                  name="buscar"
                   type="text"
                   placeholder="Buscar"
                   aria-label="Buscar productos o categorías"
