@@ -1,31 +1,48 @@
 .roundedDropdownUser {
   position: relative !important;
   display: inline-block;
+  width: 30px;
+  height: 30px;
+  padding: 2px !important;
+  background-color: var(--bg-4) !important;
+  border: 1px solid var(--bg-4);
+  border-radius: 50%;
   transition: all 0.3s ease;
 }
 .roundedDropdownUser:hover {
   border-style: none !important;
-  background-color: rgba(0, 0, 0, 0.05) !important;
-  padding: 5px !important;
-  border-radius: 10px !important;
+  background-color: var(--bg-5) !important;
+  transform: scale(1.02);
   transition: all 0.3s ease;
 }
 
+.roundedDropdownUser:focus,
+.roundedDropdownUser:active {
+  outline: none !important; /* Elimina el borde azul */
+  box-shadow: none !important;
+  border-style: none; /* Evita sombras al hacer clic */
+}
+
+.roundedDropdownUser::after {
+  display: none !important; /* Oculta la flecha del botón */
+}
+
 .dropdownMenuUser {
-  width: 200px;
+  width: 220px;
   margin: 5px 0px 0px -165px !important;
 }
-.dropdown-item {
-  background-color: transparent !important;
-}
+
 .logout,
 .profile,
 .conf {
   text-decoration: none !important;
   font-family: arimo !important;
   font-weight: 300 !important;
+  margin: 0 !important;
+  padding: 12px 20px !important;
   color: var(--color-text-2) !important;
 }
+
 .profile:hover,
 .conf:hover,
 .logout:hover {
